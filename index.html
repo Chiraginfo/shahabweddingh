@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fffaf4">
+<title>Shahzad & Chandini | Dawat-e-Walima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--green:#5a1727;--deep:#310b18;--gold:#c6a15b;--ink:#55464a;--paper:#fffaf4;--pink:#c6a15b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#e7ded7;color:var(--ink);font-family:'DM Sans',sans-serif}
+button{font:inherit}.music{position:fixed;right:17px;bottom:18px;width:43px;height:43px;border:0;border-radius:50%;background:#681d31;color:#fff;z-index:10;box-shadow:0 4px 18px #0003;cursor:pointer;font-size:17px}
+.site{width:min(100%,560px);margin:auto;background:var(--paper);min-height:100vh;overflow:hidden;box-shadow:0 0 45px #0001}
+.cover{height:100svh;min-height:620px;max-height:900px;position:relative;display:grid;place-items:center;padding:25px;background:#4a1021}
+.envelope{position:absolute;inset:0;background:
+ radial-gradient(ellipse at 50% 48%,#7a2639 0%,#54172a 55%,#2d0b17 100%);overflow:hidden}
+.envelope:before{content:"";position:absolute;inset:16px;border:1px solid #d6b66f88}
+.envelope:after{content:"";position:absolute;inset:25px;border:1px solid #e2c77a44}
+.fabric{position:absolute;inset:0;opacity:.24;background-image:repeating-linear-gradient(135deg,transparent 0 8px,#d8bd7a 9px,transparent 10px 18px);mask-image:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
+.envelope-flap{position:absolute;inset:0;background:linear-gradient(135deg,#7a2639,#55172a 65%,#350d1b);clip-path:polygon(0 0,100% 0,50% 57%);filter:drop-shadow(0 8px 8px #0005)}
+.envelope-fold{position:absolute;inset:0;background:linear-gradient(35deg,#3a0d1c,#79283b);clip-path:polygon(0 100%,0 0,50% 57%,100% 0,100% 100%)}
+.envelope-fold:after{content:"";position:absolute;inset:15% 12%;border:1px solid #d9b86d66;clip-path:polygon(0 100%,0 0,50% 55%,100% 0,100% 100%)}
+.seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f8e5b4,#c49a50 70%,#754326);box-shadow:0 5px 20px #0007,inset 0 2px 4px #fff8;display:grid;place-items:center;color:#694d38;font-family:'Cormorant Garamond',serif;font-size:30px;border:2px solid #e7c979}
+.cover-ornament{position:absolute;top:9%;left:0;width:100%;text-align:center;color:#e2c77a;font-size:90px;opacity:.45}
+.tap{position:absolute;bottom:22%;left:0;width:100%;text-align:center;color:#f3e3c4;letter-spacing:5px;font-size:10px;font-weight:600;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.45;letter-spacing:7px}}
+.cover.open .envelope-flap{transform:translateY(-110%);transition:transform 1.3s ease}
+.cover.open .envelope-fold{transform:translateY(110%);transition:transform 1.3s ease}
+.cover.open .seal{opacity:0;transition:opacity .5s}
+.cover.open{height:0;min-height:0;padding:0;transition:height 1.4s ease,min-height 1.4s ease}
+.cover.open .tap{display:none}
+.open-btn{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;z-index:3}
+.open-btn:focus-visible{outline:3px solid white;outline-offset:-8px}
+.invitation{position:relative;text-align:center;padding:48px 32px 38px;background:
+ radial-gradient(ellipse at 0% 5%,#ead9cf 0,transparent 22%),
+ radial-gradient(ellipse at 100% 32%,#ead9cf 0,transparent 22%),var(--paper)}
+.invitation:before,.invitation:after{content:"❀";position:absolute;color:#c6a15b;opacity:.35;font-size:90px;line-height:1}
+.invitation:before{top:12px;left:-14px;transform:rotate(-35deg)}.invitation:after{top:190px;right:-17px;transform:rotate(35deg)}
+.floral{position:absolute;width:125px;height:190px;opacity:.72;pointer-events:none}
+.floral svg{width:100%;height:100%}.floral.tl{top:0;left:0}.floral.br{right:0;bottom:0;transform:rotate(180deg)}
+.arabic{font-family:serif;font-size:24px;color:#8b5a42;margin:10px 0 12px;direction:rtl}
+.eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8d8b7d;line-height:2}
+.intro{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.6;letter-spacing:1px;margin:22px auto 8px;max-width:360px;color:#68675e}
+.script{font-family:'Great Vibes',cursive;color:#681d31;font-size:clamp(48px,12vw,70px);line-height:1.1;margin:10px 0 0}
+.relation{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#888477;margin:5px auto 18px}
+.with{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:3px;color:#8d8a7d;margin:12px 0}
+.small-rule{height:1px;width:48px;background:#c6aa70;margin:22px auto}
+.scroll{font-size:9px;letter-spacing:5px;color:#999487;margin:30px 0 0}
+.reveal{padding:65px 30px 55px;text-align:center;position:relative;background:linear-gradient(#fffdfa,#f8f5ee)}
+.section-label{font-size:9px;letter-spacing:4px;color:#8d8b7d;text-transform:uppercase}
+.reveal-title{font-family:'Great Vibes',cursive;font-size:54px;color:#681d31;margin:12px 0}
+.instruction{font-size:9px;letter-spacing:3px;color:#999487;margin-bottom:22px}
+.scratch-wrap{position:relative;width:min(340px,100%);margin:0 auto;height:115px;border-radius:13px;overflow:hidden;box-shadow:0 9px 25px #9b895522}
+.date-under{position:absolute;inset:0;background:linear-gradient(120deg,#a87932,#f0d58e,#b8893d);display:flex;align-items:center;justify-content:center;gap:14px;color:#fff}
+.date-under strong{font-family:'Cormorant Garamond',serif;font-size:43px;font-weight:500}.date-under span{font-size:10px;letter-spacing:2px;text-align:left}
+.scratch-cover{position:absolute;inset:0;background:linear-gradient(135deg,#f0e5d1,#d6c29c);display:grid;place-items:center;color:#79513b;letter-spacing:3px;font-size:10px;cursor:pointer;transition:opacity .7s}
+.scratch-cover:before{content:"";position:absolute;inset:8px;border:1px dashed #b18d58}
+.scratch-cover.done{opacity:0;pointer-events:none}
+.hint{font-size:10px;color:#989184;margin:14px 0 0}
+.blessing{padding:35px 25px;text-align:center;background:#fffdfa}
+.blessing .script{font-size:50px}
+.countdown{display:flex;justify-content:center;gap:12px;margin:22px auto 0}
+.unit{min-width:62px;padding:13px 7px;border:1px solid #dfcfb4;background:#fff}
+.unit b{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:#681d31}
+.unit span{font-size:8px;letter-spacing:2px;color:#999184}
+.venue{padding:52px 28px 58px;text-align:center;background:#f6f3ec;position:relative}
+.venue h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:500;color:#681d31;margin:14px 0 7px}
+.venue p{font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.6;margin:0;color:#777568}
+.mapbtn{display:inline-block;margin-top:24px;background:#681d31;color:#fff;text-decoration:none;padding:14px 22px;border-radius:30px;font-size:9px;letter-spacing:2px;text-transform:uppercase;box-shadow:0 5px 16px #5a172733}
+.end{padding:52px 25px 65px;text-align:center;background:#3a0d1c;color:#f7f0e4}
+.end .script{color:#f0d58e;font-size:52px}.end p{font-size:9px;letter-spacing:4px;line-height:2;color:#e4d2b2}
+.fade{opacity:0;transform:translateY(22px);transition:opacity .9s,transform .9s}.fade.visible{opacity:1;transform:none}
+@media(min-width:561px){.site{margin:24px auto}.cover{height:820px}.invitation{padding-top:68px}}
+</style>
+</head>
+<body>
+<main class="site">
+<section class="cover" id="cover" aria-label="Tap to open invitation">
+ <div class="envelope"><div class="fabric"></div><div class="cover-ornament">❧</div><div class="envelope-flap"></div><div class="envelope-fold"></div><div class="seal">S&nbsp;♡&nbsp;C</div></div>
+ <div class="tap">T A P&nbsp; T O&nbsp; O P E N</div>
+ <button class="open-btn" id="openBtn" aria-label="Open wedding invitation"></button>
+</section>
+
+<section class="invitation">
+ <div class="floral tl"><svg viewBox="0 0 130 190" fill="none"><path d="M4 185C42 135 26 83 106 9M23 150C3 120 4 106 28 100M48 112C82 108 87 88 79 70M68 70C38 66 36 45 52 33" stroke="#9b6a47" stroke-width="1.5"/><g fill="#d1ad68"><circle cx="105" cy="18" r="9"/><circle cx="96" cy="12" r="8"/><circle cx="112" cy="9" r="8"/><circle cx="111" cy="26" r="8"/><circle cx="98" cy="28" r="8"/><circle cx="53" cy="34" r="7"/><circle cx="44" cy="29" r="6"/><circle cx="60" cy="25" r="6"/></g><g fill="#b78b43"><circle cx="104" cy="18" r="3"/><circle cx="53" cy="34" r="2"/></g><path d="M28 100q-23-20-21-34 22 5 21 34ZM79 70q-4-25 10-35 10 21-10 35Z" fill="#b48b68"/></svg></div>
+ <div class="eyebrow">The families request the honour of your presence</div>
+ <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+ <div class="eyebrow">In the name of Allah, the most gracious and most merciful</div>
+ <div class="small-rule"></div>
+ <div class="eyebrow">With the blessings of Allah</div>
+ <p class="intro">We cordially invite you to the<br><b>DAWAT-E-WALIMA</b><br>of our beloved</p>
+ <h1 class="script">Shahzad</h1>
+ <div class="relation">Son of Late Mohd Yaseen</div>
+ <div class="with">W I T H</div>
+ <h2 class="script">Chandini</h2>
+ <div class="relation">Daughter of Late Masi Ur Rehman Khan</div>
+ <div class="small-rule"></div>
+ <div class="eyebrow">Your gracious presence and duas<br>will make our celebration complete</div>
+ <div class="scroll">S C R O L L&nbsp; D O W N</div>
+ <div class="floral br"><svg viewBox="0 0 130 190" fill="none"><path d="M4 185C42 135 26 83 106 9M23 150C3 120 4 106 28 100M48 112C82 108 87 88 79 70" stroke="#9b6a47" stroke-width="1.5"/><g fill="#d1ad68"><circle cx="105" cy="18" r="9"/><circle cx="96" cy="12" r="8"/><circle cx="112" cy="9" r="8"/><circle cx="111" cy="26" r="8"/><circle cx="98" cy="28" r="8"/></g><circle cx="104" cy="18" r="3" fill="#b78b43"/></svg></div>
+</section>
+
+<section class="reveal fade">
+ <div class="section-label">A little surprise for you</div>
+ <h2 class="reveal-title">Reveal the Date</h2>
+ <div class="instruction">T A P&nbsp; T O&nbsp; R E V E A L</div>
+ <div class="scratch-wrap">
+  <div class="date-under"><strong>01</strong><span>DECEMBER<br>2026 · 7:00 PM</span></div>
+  <button class="scratch-cover" id="scratch">✦ &nbsp; TAP HERE TO REVEAL &nbsp; ✦</button>
+ </div>
+ <p class="hint">Tuesday · 1 December 2026 · 7:00 PM onwards</p>
+ <div class="script" style="margin-top:34px">In Sha Allah</div>
+</section>
+
+<section class="blessing fade">
+ <div class="section-label">We look forward to celebrating with you</div>
+ <h2 class="script">The day is approaching</h2>
+ <div class="countdown">
+  <div class="unit"><b id="days">--</b><span>DAYS</span></div>
+  <div class="unit"><b id="hours">--</b><span>HOURS</span></div>
+  <div class="unit"><b id="mins">--</b><span>MINUTES</span></div>
+  <div class="unit"><b id="secs">--</b><span>SECONDS</span></div>
+ </div>
+</section>
+
+<section class="venue fade">
+ <div class="section-label">The Walima Celebration</div>
+ <h2>Aman Park</h2>
+ <p>Kalindi Kunj<br>Near Kalindi Kunj Metro Station</p>
+ <a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Aman+Park+Kalindi+Kunj+Delhi">⌖ &nbsp; Location for Walima</a>
+ <div class="small-rule"></div>
+ <div class="section-label">1 December 2026 · 7:00 PM</div>
+</section>
+
+<section class="end">
+ <div class="section-label" style="color:#d8c69e">Awaiting your presence</div>
+ <h2 class="script">Shahzad &amp; Chandini</h2>
+ <p>IN THIS WORLD AND THE HEREAFTER<br><br>YOUR PRESENCE &amp; BLESSINGS ONLY</p>
+ <div style="color:#d9b86d;font-size:28px">❀</div>
+</section>
+</main>
+<audio id="bgMusic" src="walima-reference-music.mp3" preload="auto" loop></audio>
+<button class="music" id="music" aria-label="Play or pause music" title="Play / pause music">♫</button>
+<script>
+const cover=document.getElementById('cover'),openBtn=document.getElementById('openBtn');
+openBtn.addEventListener('click',()=>{cover.classList.add('open');setTimeout(()=>document.querySelector('.invitation').scrollIntoView({behavior:'smooth'}),650)});
+document.getElementById('scratch').addEventListener('click',e=>{e.currentTarget.classList.add('done');});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+const target=new Date('2026-12-01T19:00:00+05:30').getTime();
+function tick(){let diff=Math.max(0,target-Date.now());const vals={days:Math.floor(diff/86400000),hours:Math.floor(diff%86400000/3600000),mins:Math.floor(diff%3600000/60000),secs:Math.floor(diff%60000/1000)};for(const [id,v] of Object.entries(vals))document.getElementById(id).textContent=String(v).padStart(2,'0')}
+tick();setInterval(tick,1000);
+// The supplied reference recording's soundtrack is bundled locally.
+const audio=document.getElementById('bgMusic');
+const musicButton=document.getElementById('music');
+async function startMusic(){
+  try { await audio.play(); musicButton.textContent='♪'; musicButton.title='Pause music'; }
+  catch(err) { musicButton.textContent='♫'; musicButton.title='Tap to play music'; }
+}
+openBtn.addEventListener('click', startMusic, {once:true});
+musicButton.addEventListener('click', async ()=>{
+  if(audio.paused) await startMusic();
+  else { audio.pause(); musicButton.textContent='♫'; musicButton.title='Play music'; }
+});
+</script>
+
+<footer class="creator-credit" aria-label="Website creator">
+  <span>Crafted with love by</span>
+  <a href="https://www.google.com/search?q=Dakuloves+Production"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Search Dakuloves Production on Google">Dakuloves Production</a>
+</footer>
+<style>
+.creator-credit{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;padding:22px 16px 28px;color:#8b7357;background:#fffaf4;font-family:inherit;font-size:12px;letter-spacing:.08em;text-align:center}
+.creator-credit a{color:#9b7435;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(198,161,91,.65);transition:color .25s ease,border-color .25s ease}
+.creator-credit a:hover,.creator-credit a:focus-visible{color:#5a1727;border-color:#5a1727;outline:none}
+</style>
+
+</body>
+</html>
